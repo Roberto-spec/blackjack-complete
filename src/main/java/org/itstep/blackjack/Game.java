@@ -3,6 +3,7 @@ package org.itstep.blackjack;
 import lombok.extern.slf4j.Slf4j;
 import org.itstep.blackjack.card.Card;
 import org.itstep.blackjack.event.GameEventListener;
+import org.itstep.ui.controller.BlackjackController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,9 +36,9 @@ public class Game {
             log.info("Game over. Win {}", getWinner());
         }
     }
-    public void addGameEventListener(GameEventListener eventHendler){
-        eventListener.add(eventHendler);
-    }
+//    public void addGameEventListener(GameEventListener eventHendler){
+//        eventListener.add(eventHendler);
+//    }
     private void publishStand(){
         eventListener.forEach(GameEventListener::stand);
     }
@@ -66,6 +67,7 @@ public class Game {
             publishDealerTakeCard(card);
             log.info("Dealer take a card {}", card);
         }
+
         // TODO: вызвать publishGameOver(getWinner());
         publishGameOver(getWinner());
         log.info("Game over. Win {}", getWinner());
@@ -123,4 +125,7 @@ public class Game {
         log.info("Dealer take second card {}", lastCard);
     }
 
+    public void addEventListener(GameEventListener eventHendler){
+        eventListener.add(eventHendler);
+    }
 }

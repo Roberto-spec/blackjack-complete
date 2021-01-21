@@ -7,7 +7,7 @@ public interface GameEventListener {
     void stand();
     void playerGetCard(Card card, int points);
     void dealerGetCard(Card card, int points);
-    void playerSerBet(int amount);
+   // void playerSerBet(int amount);
     void gameOver(String winner, int playerPoints, int dealerPints);
 
 

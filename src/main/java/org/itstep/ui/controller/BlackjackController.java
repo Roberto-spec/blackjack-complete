@@ -12,8 +12,10 @@ import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.HBox;
 import org.itstep.blackjack.Game;
 import org.itstep.blackjack.NoMoneyEnough;
+import org.itstep.blackjack.card.Card;
 import org.itstep.blackjack.event.GameEventListener;
 import org.itstep.ui.CardView;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,7 +61,7 @@ public class BlackjackController implements Initializable {
     public BlackjackController() {
 
         game = new Game();
-        game.addEventListener(new GameEventHandler();
+        game.addEventListener(new GameEventHandler());
     }
 
     @FXML
@@ -122,7 +124,7 @@ public class BlackjackController implements Initializable {
     private class GameEventHandler implements GameEventListener{
         @Override
         public void gameStart(){
-            start();
+            restart();
         }
 
         @Override
@@ -151,9 +153,8 @@ public class BlackjackController implements Initializable {
             hbDealerCards.getChildren().add(new CardView(card));
         }
 
-        @Override
-        public  void playerSetBet(int amount){
-
-        }
+//        @Override
+//        public  void playerSetBet(int amount){
+//        }
     }
 }
